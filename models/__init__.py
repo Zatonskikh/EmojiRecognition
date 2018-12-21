@@ -1,0 +1,1 @@
+from .mnist_cnn import MnistCnnModel
