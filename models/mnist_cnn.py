@@ -6,10 +6,12 @@ class MnistCnnModel(object):
     def __init__(self,
                  num_classes: int,
                  image_shape: tuple,
-                 channels: int) -> None:
+                 channels: int,
+                 model: str = None) -> None:
         self.num_classes = num_classes
         self.image_shape = image_shape
         self.channels = channels
+        self.model_path = model
 
     def get_model(self):
         input_shape = self.image_shape + (self.channels,)
@@ -24,4 +26,9 @@ class MnistCnnModel(object):
         model.add(Dense(128, activation='relu'))
         model.add(Dropout(0.5))
         model.add(Dense(self.num_classes, activation='softmax'))
+        return model
+
+    def get_trained_model(self):
+        model = self.get_model()
+        model.load_weights(self.model_path)
         return model
