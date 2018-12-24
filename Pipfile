@@ -9,6 +9,7 @@ keras = "*"
 pillow = "*"
 numpy = "*"
 ujson = "*"
+keras-metrics = "*"
 
 [dev-packages]
 

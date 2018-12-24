@@ -9,7 +9,8 @@ from PIL import Image
 def augment_data(path: str):
     p = Augmentor.Pipeline(path, path)
     p.random_distortion(1, 4, 4, 4)
-    p.sample(200)
+    p.skew_corner(0.5)
+    p.sample(100)
 
 
 def move_img_to_folders(path: str):
